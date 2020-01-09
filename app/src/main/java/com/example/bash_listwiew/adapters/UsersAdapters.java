@@ -53,9 +53,9 @@ import java.util.List;
             holder.apellidos.setText(rowItem.apellidos);
             holder.phone.setText(rowItem.phone);
 
-            if ( rowItem.getSmallImage() != null ) {
-                holder.image.setImageUrl(rowItem.getSmallImage(), queue);
-            }
+//            if ( rowItem.getSmallImage() != null ) {
+//                holder.image.setImageUrl(rowItem.getSmallImage(), queue);
+//            }
             return convertView;
         }
     }
