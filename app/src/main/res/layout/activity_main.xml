@@ -5,10 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <ListView
-        android:id="@+id/usersList"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </ListView>
+        <Button
+            android:id="@+id/btnTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Limeños">
+        </Button>
+        <Button
+            android:id="@+id/btnTipo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Huancayo">
+        </Button>
+        <ListView
+            android:id="@+id/usersList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

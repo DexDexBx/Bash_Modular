@@ -51,8 +51,9 @@ public class Users {
 
     public static void injectContactsFromCloud(final QueueUtils.QueueObject o,
                                                final ArrayList<Users> users,
-                                               final MainActivity _interface) {
-        String url = "http://fipo.equisd.com/api/users.json";
+                                               final MainActivity _interface,
+                                               final String tipo) {
+        String url = "http://earthy-auroraceratops-pky31oxz6q.glitch.me/products.json?tipo="+tipo;
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                 (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
 
@@ -64,8 +65,8 @@ public class Users {
                                 JSONArray list = response.getJSONArray("objects");
                                 for (int i=0; i < list.length(); i++) {
                                     JSONObject o = list.getJSONObject(i);
-                                    users.add(new Users(o.getString("first_name"),
-                                            o.getString("last_name"),"_apellido","123","_image"));
+                                    users.add(new Users(o.getString("name"),
+                                            o.getString("description"),"_apellido","123","_image"));
                                 }
 
                             } catch (JSONException e) {
@@ -86,7 +87,8 @@ public class Users {
     }
     public static void sendRequestPOST(QueueUtils.QueueObject o, final MainActivity _interface) {
         String url = "http://rrojasen.alwaysdata.net/purchaseorders.json";
-        url = "http://fipo.equisd.com/api/users/new.json";
+/*        url = "http://fipo.equisd.com/api/users/new.json";*/
+        url = "https://earthy-auroraceratops-pky31oxz6q.glitch.me/products/new.json";
         /*url = "http://192.168.58.3:8056/api/users/new.json";*/
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
@@ -95,10 +97,10 @@ public class Users {
                         try {
                             //Do it with this it will work
                             JSONObject _response = new JSONObject(response);
-                            if (_response.has("objects")) {
+                            if (_response.has("object")) {
                                 JSONObject object_response = null;
                                 try {
-                                    object_response = _response.getJSONObject("objects");
+                                    object_response = _response.getJSONObject("object");
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
